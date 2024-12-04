@@ -9,10 +9,13 @@ This repository contains the implementation of a Bangla-English Question Answeri
 This solution is demonstrated in **two notebooks**:
 
 1. **Bangla-English QA with Sentence Transformers**  
-   - Implements the core QA system, including dataset creation, translation, context retrieval, and answering questions in both Bangla and English.
+   - Implements the core QA system, including dataset creation, translation, context retrieval, and answering questions in both Bangla and English.  
+   - [Link to Kaggle Notebook](https://www.kaggle.com/code/isratjahankhan/bangla-english-qa-with-sentence-transformers)
 
-2. **Bangla-English QA with Sentence Transformers with GUI**  
-   - Extends the first notebook by adding a simple Graphical User Interface (GUI) for enhanced usability.
+2. **Bangla-English QA with GUI**  
+   - Extends the first notebook by adding a simple Graphical User Interface (GUI) for enhanced usability.  
+   - [Link to Kaggle Notebook](https://www.kaggle.com/code/isratjahankhan/bangla-english-qa-with-sentence-transformers-with)
+
 
 ---
 
@@ -87,6 +90,46 @@ Install necessary libraries to enable translation, semantic similarity, and QA f
 
 ---
 
+### 9. Adding GUI for Interactive QA with Gradio
+
+To enhance the usability of the Bangla-English QA system, a simple graphical user interface (GUI) was created using the **Gradio** library. This interface allows users to easily interact with the system, input questions, select a dataset index, and view the generated answers in both Bangla and English.
+
+#### Steps for Creating the GUI:
+
+1. **Install Gradio**  
+   First, ensure that the `gradio` library is installed by running the following command:
+   ```bash
+   pip install gradio
+   ```
+
+2. **Creating the Interface**  
+   The core of the GUI is built around the following components:
+   - **Input:** A text box where users can type their questions.
+   - **Dropdown:** A dropdown menu to choose the dataset index (either English or Bangla dataset).
+   - **Output:** A text box that displays the generated answers in both English and Bangla after the model processes the input question.
+
+   The interface interacts with the system’s QA pipeline and retrieves the context from the chosen dataset. Based on the input question, the system returns the most relevant context, which is then processed to generate the answer.
+
+3. **Running the Interface**  
+   After defining the interface, it is launched using the `launch()` method. This opens a web-based interface in the browser, where users can interact with the system by typing their questions and choosing the language. The system will return the most relevant answers based on the dataset and context.
+
+4. **Example Interaction**  
+   When a user types a question like “What is Blockchain?” and selects **English** or **Bangla** as the language, the system will:
+   - Retrieve the context for the most relevant match from the dataset.
+   - Process the question using the pre-trained QA pipeline.
+   - Display the generated answer.
+
+---
+
+#### Advantages of Gradio Integration:
+- **User-Friendly Interface:** Gradio provides a simple and intuitive web interface, making it easy for anyone, even without programming knowledge, to interact with the system.
+- **Live Interactivity:** With the `live=True` option, users get instant feedback on their queries.
+- **Multilingual Support:** Users can switch between Bangla and English datasets effortlessly.
+
+By adding this GUI, the Bangla-English QA system becomes more accessible, allowing users to interact with the system without requiring any technical setup.
+
+---
+
 ## Additional Features
 - **Retrieval-Augmented Generation (RAG):** Simplified retrieval mechanism for relevant contexts.
 - **Direct Preference Optimization (DPO):** Answer ranking based on defined criteria.
@@ -111,8 +154,6 @@ The system generates QA results in both English and Bangla, providing relevant a
 
 > **Note:** While English answer generation works efficiently, Bangla answer generation sometimes adds incomplete extra lines after the main answers. This issue is under development and will be resolved in future updates.  
 
----
+> **GUI Note:** The GUI interface can be shown and used, but it does not handle the dataset properly at this time. This issue is also under development, and I will make sure it functions correctly in future updates.
 
 ---
-
-
