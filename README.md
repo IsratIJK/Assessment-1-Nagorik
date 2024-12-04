@@ -157,3 +157,5 @@ The system generates QA results in both English and Bangla, providing relevant a
 > **GUI Note:** The GUI interface can be shown and used, but it does not handle the dataset properly at this time. This issue is also under development, and I will make sure it functions correctly in future updates.
 
 ---
+### License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
