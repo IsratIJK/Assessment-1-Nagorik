@@ -19,13 +19,17 @@ This solution is demonstrated in **two notebooks**:
 
 ---
 
+Here's the updated section for **RAG** and **DPO** in the README:
+
+---
+
 ## Features
 
-- Multilingual QA support for Bangla and English.
-- Translation of English datasets to Bangla using Google Translate API.
-- Context retrieval using Sentence Transformers and semantic similarity.
-- Answer ranking with Direct Preference Optimization (DPO).
-- Support for Retrieval-Augmented Generation (RAG) via simplified retrieval methods.
+- **Multilingual QA support for Bangla and English.**
+- **Translation of English datasets to Bangla** using Google Translate API.
+- **Context retrieval using Sentence Transformers and semantic similarity** for relevant context.
+- **Answer ranking with Direct Preference Optimization (DPO)**: A simple heuristic approach that ranks answers based on the length of the answer.
+- **Support for Retrieval-Augmented Generation (RAG)**: Utilizes semantic similarity for simplified retrieval of the most relevant context before answering the question.
 
 ---
 
@@ -63,14 +67,21 @@ Install necessary libraries to enable translation, semantic similarity, and QA f
 ---
 
 ### 5. Context Retrieval Using Semantic Similarity
-- Implemented a semantic similarity function to retrieve the most relevant context:
-  - Questions and contexts were encoded into sentence embeddings.
-  - Cosine similarity was used to select the best-matching context.
+
+- **RAG (Retrieval-Augmented Generation)** is employed in this system to retrieve the most relevant context from the dataset based on the user's question.  
+- **Process:**
+  - Both the question and the documents (contexts) are encoded into sentence embeddings using a **SentenceTransformer** model (`all-MiniLM-L6-v2`).
+  - **Cosine similarity** is used to measure the similarity between the question’s embedding and each document's embedding. The document with the highest similarity score is selected as the most relevant context.
+  - This context is then used by the QA pipeline to generate the answer.
 
 ---
 
 ### 6. Ranking Answers Using Direct Preference Optimization (DPO)
-- A simple heuristic was used to rank answers, selecting the longest answer as the most relevant.
+
+- **DPO (Direct Preference Optimization)** ranks the answers based on a simple heuristic: the **longest answer** is selected as the best answer.
+- **Process:**
+  - After generating potential answers from the QA system, the longest answer (in terms of length) is considered the most detailed and relevant.
+  - This ranking mechanism is simple but effective for scenarios where more detailed responses are preferred.
 
 ---
 
